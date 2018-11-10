@@ -15,14 +15,8 @@
 spring:
   datasource:
     url: "jdbc:postgresql://localhost:5432/iat"
-    username: "${DB_USER}"
+    username: "iat_admin"
     password: "${DB_PASSWORD}"
-
-flyway:
-  enabled: true
-  url: "jdbc:postgresql://localhost:5432/iat"
-  user: "iat_admin"
-  password: "${DB_PASSWORD}"
 
 ---
 spring:
@@ -32,7 +26,6 @@ spring:
 
 flyway:
   enabled: false
-  url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 ---
 spring:
@@ -42,4 +35,3 @@ spring:
 
 flyway:
   enabled: false
-  url: "jdbc:postgresql:imrt-db-uat-aurora.cjqp2fdamfoh.us-east-2.rds.amazonaws.com"
