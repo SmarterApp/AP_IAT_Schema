@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: "jdbc:postgresql://${db.host:localhost}:${db.port:5432}/${db.schema:iat}"
+    username: "${db.user:iat_admin}"
+    password: "${db.password}"
 
 flyway:
   enabled: true
