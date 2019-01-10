@@ -31,7 +31,7 @@ flyway:
 spring:
   profiles: uat
   datasource:
-    url: "jdbc:postgresql:imrt-db-uat-aurora.cjqp2fdamfoh.us-east-2.rds.amazonaws.com"
+    url: "jdbc:postgresql://imrt-db-uat-aurora.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 flyway:
   enabled: false
