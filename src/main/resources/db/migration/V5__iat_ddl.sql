@@ -11,7 +11,7 @@
 update workflow_status_transition
 set to_code = 'TextToSpeechReview'
 where from_code = 'TextToSpeechUpload'
-	and to_code = 'AccessibilityUpload'
+	and to_code = 'AccessibilityUpload';
 
 -- Select row that was updated (expected = 1 row)
 -- select * from workflow_status_transition
