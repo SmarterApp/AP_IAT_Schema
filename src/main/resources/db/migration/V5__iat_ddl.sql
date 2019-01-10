@@ -23,7 +23,3 @@ where from_code = 'TextToSpeechUpload'
 --set to_code = 'AccessibilityUpload'
 --where from_code = 'TextToSpeechUpload'
 --	and to_code = 'TextToSpeechReview'
-
--- flywayClean deletes all user privileges, so we set them again
-GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL TABLES in schema public to "iat";
-GRANT SELECT, UPDATE ON ALL SEQUENCES in schema public to "iat";
