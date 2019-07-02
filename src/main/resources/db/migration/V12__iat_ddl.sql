@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS item_history (
   item_commit_id        UUID,
   branch_commit_id      UUID,
   content_version_id    TEXT        CHECK (char_length(content_version_id)  <= 255),
-  commit_by             TEXT        CHECK (char_length(content_version_id)  <= 255),
+  commit_by             TEXT        CHECK (char_length(commit_by)  <= 255),
   commit_date           TIMESTAMPTZ NOT NULL,
   commit_message        TEXT        NOT NULL,
   created_date          TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
