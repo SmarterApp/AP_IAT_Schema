@@ -4,26 +4,23 @@
 
 -- item history
 CREATE TABLE IF NOT EXISTS item_history (
-  id                        UUID        NOT NULL,
+  id                    UUID        NOT NULL,
 
-  item_id                   TEXT        NOT NULL CHECK (char_length(item_id)  <= 255),
+  item_id               TEXT        NOT NULL CHECK (char_length(item_id)  <= 255),
 
-  event_type                TEXT        NOT NULL CHECK (char_length(event_type)  <= 255),
+  item_commit_id        UUID,
+  branch_commit_id      UUID,
 
-  item_commit_id            UUID,
-  branch_commit_id          UUID,
+  content_version_id    TEXT        CHECK (char_length(content_version_id)  <= 255),
 
-  content_zip_version_id    TEXT        CHECK (char_length(content_zip_version_id)  <= 255),
+  commit_by             VARCHAR     NOT NULL,
+  commit_date           TIMESTAMPTZ NOT NULL,
+  commit_message        TEXT        NOT NULL,
 
-  commit_date               TIMESTAMPTZ NOT NULL,
-  commit_by                 VARCHAR     NOT NULL,
+  created_date          TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
 
-  created_date              TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
-  created_by                VARCHAR     NOT NULL,
-  updated_date              TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
-  updated_by                VARCHAR     NOT NULL,
-
-  CONSTRAINT pk_item_history PRIMARY KEY (id)
+  CONSTRAINT pk_item_history PRIMARY KEY (id),
+  UNIQUE (item_id, item_commit_id, commit_date)
 );
 
 -- flywayClean deletes all user privileges, so we will set them here
