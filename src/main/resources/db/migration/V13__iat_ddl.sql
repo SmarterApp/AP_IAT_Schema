@@ -6,7 +6,6 @@
 ALTER TABLE item_history
     ADD COLUMN commit_by_fullname TEXT CHECK (char_length(commit_by_fullname) <= 255);
 
-
 -- item
 ALTER TABLE item
     DROP COLUMN created_by_fullname,
