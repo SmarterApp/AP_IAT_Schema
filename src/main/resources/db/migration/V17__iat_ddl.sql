@@ -85,6 +85,7 @@ CREATE SEQUENCE BATCH_STEP_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE;
 CREATE SEQUENCE BATCH_JOB_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE;
 CREATE SEQUENCE BATCH_JOB_SEQ MAXVALUE 9223372036854775807 NO CYCLE;
 
--- Add permissions for imrt_ingest
-GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL TABLES in schema public to "imrt_ingest";
-GRANT SELECT, UPDATE ON ALL SEQUENCES in schema public to "imrt_ingest";
+-- Adding a table requires these statements to be run
+-- Assumes that iat user has already been created in the database
+GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL TABLES in schema public to "iat";
+GRANT SELECT, UPDATE ON ALL SEQUENCES in schema public to "iat";

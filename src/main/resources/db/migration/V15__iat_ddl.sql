@@ -4,12 +4,15 @@
 
 -- item job
 CREATE TABLE IF NOT EXISTS item_job (
-  id                 UUID    NOT NULL,
-  job_execution_id   BIGINT  NOT NULL,
-  job_type           TEXT    NOT NULL CHECK(char_length(job_type)  <= 255),
+  id                 UUID        NOT NULL,
+  job_execution_id   BIGINT      NOT NULL,
+  job_type           TEXT        NOT NULL CHECK(char_length(job_type)  <= 255),
+  job_params_json    JSON,
   job_result_json    JSON,
-  created_by         TEXT    NOT NULL CHECK (char_length(created_by) <= 255),
+  created_by         TEXT        NOT NULL CHECK (char_length(created_by) <= 255),
   created_date       TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+  updated_date       TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+  updated_by         TEXT        NOT NULL CHECK (char_length(updated_by)           <= 255),
   CONSTRAINT pk_item_job PRIMARY KEY (id)
 );
 
