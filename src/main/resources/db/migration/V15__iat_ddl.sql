@@ -6,8 +6,8 @@
 CREATE TABLE IF NOT EXISTS item_job (
   id                 UUID    NOT NULL,
   job_execution_id   BIGINT  NOT NULL,
-  job_type          TEXT    NOT NULL CHECK(char_length(json_type)  <= 255),
-  job_result_json    JSON    NULL,
+  job_type           TEXT    NOT NULL CHECK(char_length(job_type)  <= 255),
+  job_result_json    JSON,
   created_by         TEXT    NOT NULL CHECK (char_length(created_by) <= 255),
   created_date       TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
   CONSTRAINT pk_item_job PRIMARY KEY (id)
