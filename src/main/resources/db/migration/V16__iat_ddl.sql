@@ -11,6 +11,10 @@ CREATE TABLE IF NOT EXISTS item_history_audit (
     expected_commit_count INTEGER,
     is_complete           BOOLEAN NOT NULL DEFAULT FALSE,
     is_failed             BOOLEAN NOT NULL DEFAULT FALSE,
+    failed_date           TIMESTAMPTZ,
+    failed_message        TEXT,
+    attempt               INTEGER NOT NULL DEFAULT 1,
+    process_time          INTEGER,
     created_date          TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
     CONSTRAINT pk_item_history_audit PRIMARY KEY (item_id)
 );
