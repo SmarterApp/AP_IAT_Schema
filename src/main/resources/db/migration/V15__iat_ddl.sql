@@ -1,4 +1,5 @@
 --
+<<<<<<< HEAD
 -- https://smarterbalanced.atlassian.net/browse/IAT-3130
 --
 
@@ -17,7 +18,6 @@ CREATE TABLE IF NOT EXISTS item_history_audit (
     process_time          INTEGER,
     created_date          TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
     CONSTRAINT pk_item_history_audit PRIMARY KEY (item_id)
-);
 
 -- Adding a table requires these statements to be run
 -- Assumes that iat user has already been created in the database
