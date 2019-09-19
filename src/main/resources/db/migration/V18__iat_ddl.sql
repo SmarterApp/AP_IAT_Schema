@@ -16,8 +16,8 @@ CREATE SEQUENCE IF NOT EXISTS tims_user_seq START 1000;
 CREATE TABLE IF NOT EXISTS tims_user  (
     id                      INTEGER     NOT NULL PRIMARY KEY ,
     email                   TEXT        NOT NULL CHECK (char_length(email)  <= 255) UNIQUE,
-    given_name              TEXT        NOT NULL CHECK (char_length(given_name)  <= 255),
-    surname                 TEXT        NOT NULL CHECK (char_length(surname)  <= 255),
+    given_name              TEXT        CHECK (char_length(given_name)  <= 255),
+    surname                 TEXT        CHECK (char_length(surname)  <= 255),
     is_deleted              BOOLEAN     NOT NULL DEFAULT FALSE,
     organization_name       TEXT        CHECK (char_length(organization_name)  <= 255),
     organization_type_id    INT,
