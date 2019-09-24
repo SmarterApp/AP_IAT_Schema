@@ -47,3 +47,7 @@ values (
 
 -- We are giving the the anonymous user the tims admin role.  Pick what works for you.
 insert into tims_user_role (user_id, role_id, created_by) values (2, 1, 1);
+
+
+-- TIMS Admin (role) | access_tims (permission)
+insert into tims_role_permission(role_id, permission_id, created_by) values (1, 1, 1);
