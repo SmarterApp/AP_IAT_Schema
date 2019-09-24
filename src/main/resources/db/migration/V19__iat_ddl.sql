@@ -203,6 +203,22 @@ CREATE TABLE IF NOT EXISTS tims_role_permission_workflow_status  (
     constraint role_permission_workflow_fk_3 foreign key (created_by) references tims_user(id)
 );
 
+
+insert into
+    tims_user (id, email, given_name, surname, organization_name, organization_type_id, tag, is_deleted, created_by, updated_by)
+values (
+   1,
+   'tims-admin@smarterbalanced.com',
+   'TIMS',
+   'Admin',
+   'Smarter Balanced',
+   4,
+   'TIMS Admin',
+   true,
+   1,
+   1
+) ON CONFLICT (id) DO NOTHING;
+
 -- Adding a table requires these statements to be run
 -- Assumes that iat user has already been created in the database
 GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL TABLES in schema public to "iat";
