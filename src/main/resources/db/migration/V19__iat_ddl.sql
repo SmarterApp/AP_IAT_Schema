@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS tims_role_permission_workflow_status  (
     created_by              INTEGER     NOT NULL,
     created_date            TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
     CONSTRAINT pk_role_permission_workflow PRIMARY KEY (role_id, permission_id, workflow_status_code),
-    constraint role_permission_workflow_fk_1 foreign key (role_id) references tims_role_permission(role_id, permission_id),
+    constraint role_permission_workflow_fk_1 foreign key (role_id, permission_id) references tims_role_permission(role_id, permission_id),
     constraint role_permission_workflow_fk_2 foreign key (workflow_status_code) references workflow_status(code),
     constraint role_permission_workflow_fk_3 foreign key (created_by) references tims_user(id)
 );
