@@ -170,3 +170,20 @@ insert into tims_role_permission(role_id, permission_id, created_by) values (1, 
 insert into tims_role_permission(role_id, permission_id, created_by) values (1, 136, 1);
 insert into tims_role_permission(role_id, permission_id, created_by) values (1, 137, 1);
 insert into tims_role_permission(role_id, permission_id, created_by) values (1, 138, 1);
+
+
+insert into
+    tims_user (id, email, given_name, surname, organization_name, organization_type_id, tag, created_by, updated_by)
+values (
+    nextval('tims_user_seq'),
+    'hal@fairwaytech.com',
+    'Hal',
+    'Jordan',
+    'Fairway Technologies',
+    1,
+    'test',
+    1,
+    1
+);
+
+insert into tims_user_role (user_id, role_id, created_by) values (1000, 1, 1);
