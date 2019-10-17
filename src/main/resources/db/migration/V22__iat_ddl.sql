@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS tims_permission_audit  (
     action_details          TEXT        NOT NULL,
     comment                 TEXT        NOT NULL,
     changed_by              TEXT        NOT NULL CHECK (char_length(changed_by)  <= 255),
-    changed_on              TIMESTAMPTZ NOT NULL DEFAULT current_timestamp
+    changed_date            TIMESTAMPTZ NOT NULL DEFAULT current_timestamp
 );
 
 CREATE SEQUENCE IF NOT EXISTS tims_permission_audit_seq START 1000;
