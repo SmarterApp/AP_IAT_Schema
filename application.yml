@@ -15,7 +15,7 @@
 spring:
   datasource:
     url: "jdbc:postgresql://localhost:5432/iat"
-    username: "iat_admin"
+    username: "iat"
     password: "${DB_PASSWORD}"
 
 ---
