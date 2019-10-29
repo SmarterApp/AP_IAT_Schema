@@ -1,35 +1,9 @@
 -- ***************************************************************************
--- This file is to be used as development seed data.  Nothing in here should
--- go into QA/UAT/Stage/Production.
--- User, role, and permissions use their respective sequences which start at
--- 1000.  The seed data below must use PK values in the range 1-999.  You can
--- also utilize the sequence in your insert statement if you want.
+-- Create a role that has all permissions including all workflow statuses
 -- ***************************************************************************
 
--- Add this to your local database if you want to use Postman with the permission service
--- Depending on your Postman, it may not have session sync with Chrome in which case all
--- requests are received by the permission service as anonymousUser
-insert into
-    tims_user (id, email, given_name, surname, organization_name, organization_type_id, tag, created_by, updated_by)
-values (
-   2,
-   'anonymousUser',
-   'anonymous',
-   'anonymous',
-   'Restricted',
-   4,
-   'anonymous',
-   1,
-   1
-);
-
--- This is optional but if you want to seed some roles you can use these samples.
+-- Super User role
 insert into tims_role (id, label, created_by, updated_by) values (1, 'Super User', 1, 1);
-insert into tims_role (id, label, created_by, updated_by) values (2, 'Item Writer', 1, 1);
-insert into tims_role (id, label, created_by, updated_by) values (3, 'Committee Review', 1, 1);
-
--- We are giving the the anonymous user the super user role.  Pick what works for you.
-insert into tims_user_role (user_id, role_id, created_by) values (2, 1, 1);
 
 -- This gives the Super User role every permission
 insert into tims_role_permission(role_id, permission_id, created_by) values (1, 1, 1);
@@ -171,27 +145,8 @@ insert into tims_role_permission(role_id, permission_id, created_by) values (1, 
 insert into tims_role_permission(role_id, permission_id, created_by) values (1, 137, 1);
 insert into tims_role_permission(role_id, permission_id, created_by) values (1, 138, 1);
 
--- insert a user using the user sequence
-insert into
-    tims_user (id, email, given_name, surname, organization_name, organization_type_id, tag, created_by, updated_by)
-values (
-    nextval('tims_user_seq'),
-    'hal@fairwaytech.com',
-    'Hal',
-    'Jordan',
-    'Fairway Technologies',
-    1,
-    'test',
-    1,
-    1
-);
-
--- adding the user above resulted in user ID 1000, add the super user role (role ID 1) to the user
-insert into tims_user_role (user_id, role_id, created_by) values (1000, 1, 1);
-
 
 -- 4000+ insert statements to add every workflow status to every role-permission record
-
 insert into tims_role_permission_workflow_status(role_id, permission_id, workflow_status_code, created_by) values (1, 1, 'Draft', 1);
 insert into tims_role_permission_workflow_status(role_id, permission_id, workflow_status_code, created_by) values (1, 1, 'InitialReview', 1);
 insert into tims_role_permission_workflow_status(role_id, permission_id, workflow_status_code, created_by) values (1, 1, 'MultimediaUpload', 1);
