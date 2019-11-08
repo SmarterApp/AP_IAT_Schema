@@ -1,4 +1,5 @@
-insert into tims_role (id, label, created_by, updated_by) values ("id", 'label', 1, 1);
+-- This file is an export from UAT where SmarterBalanced created the roles and permission associations.
+-- It can be used in any environment (local, qa, uat, stage, production)
 insert into tims_role (id, label, created_by, updated_by) values (1, 'Administrator', 1, 1);
 insert into tims_role (id, label, created_by, updated_by) values (1003, 'Log in to TIMS', 1, 1);
 insert into tims_role (id, label, created_by, updated_by) values (1004, 'ViewOpCurrVers', 1, 1);
