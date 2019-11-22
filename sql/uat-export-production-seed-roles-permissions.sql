@@ -360,6 +360,7 @@ insert into tims_role_permission (role_id, permission_id, created_by) values (10
 insert into tims_role_permission (role_id, permission_id, created_by) values (1007, 135, 1);
 insert into tims_role_permission (role_id, permission_id, created_by) values (1007, 136, 1);
 insert into tims_role_permission (role_id, permission_id, created_by) values (1007, 137, 1);
+insert into tims_role_permission (role_id, permission_id, created_by) values (1008, 36, 1);
 insert into tims_role_permission (role_id, permission_id, created_by) values (1008, 38, 1);
 insert into tims_role_permission (role_id, permission_id, created_by) values (1008, 43, 1);
 insert into tims_role_permission (role_id, permission_id, created_by) values (1008, 63, 1);
